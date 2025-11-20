@@ -1,0 +1,1979 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeKit - Digital Clock, Timer, Stopwatch &amp; Alarm | Free Online Time Tools</title><!-- SEO Meta Tags -->
+  <meta name="description" content="TimeKit - Free online digital clock, countdown timer, stopwatch, pomodoro timer, world clock, and alarm. Boost productivity with custom team timers, habit tracker, and break reminders. Best time management tools for 2024.">
+  <meta name="keywords" content="timekit, online timer, digital clock, stopwatch online, countdown timer, pomodoro timer, world clock, alarm clock, time management tools, productivity timer, free timer, online clock, team timer, habit tracker, break reminder, work timer, study timer, meditation timer, cooking timer, workout timer">
+  <meta name="author" content="Er. Asgar">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English"><!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="TimeKit - Best Free Online Timer &amp; Clock Tools">
+  <meta property="og:description" content="Digital clock, timers, stopwatch, alarms &amp; productivity tools. Track time beautifully with TimeKit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://timekit.app"><!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TimeKit - Free Online Timer, Clock &amp; Stopwatch">
+  <meta name="twitter:description" content="Powerful time management tools including timers, clocks, alarms, and productivity features."><!-- Additional SEO -->
+  <link rel="canonical" href="https://timekit.app">
+  <meta name="theme-color" content="#6A5AF9">
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+      min-height: 100%;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      position: fixed;
+      top: 32px;
+      left: 32px;
+      z-index: 100;
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF, #36E0E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 12px rgba(106, 90, 249, 0.3);
+    }
+
+    .creator-credit {
+      position: fixed;
+      top: 36px;
+      right: 32px;
+      z-index: 100;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    /* Animated Background Shapes */
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .shape-1 {
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      top: -200px;
+      left: -200px;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #3E8BFF, #36E0E0);
+      bottom: -150px;
+      right: -150px;
+      animation-delay: 5s;
+    }
+
+    .shape-3 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #36E0E0, #6A5AF9);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(50px, 50px) rotate(90deg); }
+      50% { transform: translate(0, 100px) rotate(180deg); }
+      75% { transform: translate(-50px, 50px) rotate(270deg); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 32px 80px;
+      position: relative;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #6A5AF9 0%, #3E8BFF 50%, #36E0E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+      animation: slideUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+      animation: slideUp 1s ease-out 0.4s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: slideUp 1s ease-out 0.6s both;
+    }
+
+    .btn {
+      padding: 18px 42px;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 32px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      color: white;
+      box-shadow: 0 8px 32px rgba(106, 90, 249, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(106, 90, 249, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Tools Grid Section */
+    .tools-section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 64px;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff, #a8c0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .tool-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
+      border-radius: 32px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: cardPopIn 0.6s ease-out both;
+    }
+
+    @keyframes cardPopIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .tool-card:nth-child(1) { animation-delay: 0.1s; }
+    .tool-card:nth-child(2) { animation-delay: 0.2s; }
+    .tool-card:nth-child(3) { animation-delay: 0.3s; }
+    .tool-card:nth-child(4) { animation-delay: 0.4s; }
+    .tool-card:nth-child(5) { animation-delay: 0.5s; }
+    .tool-card:nth-child(6) { animation-delay: 0.6s; }
+    .tool-card:nth-child(7) { animation-delay: 0.7s; }
+    .tool-card:nth-child(8) { animation-delay: 0.8s; }
+    .tool-card:nth-child(9) { animation-delay: 0.9s; }
+    .tool-card:nth-child(10) { animation-delay: 1s; }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .tool-card:hover::before {
+      left: 100%;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(106, 90, 249, 0.3);
+      border-color: rgba(106, 90, 249, 0.5);
+    }
+
+    .tool-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 8px 24px rgba(106, 90, 249, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover .tool-icon {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(106, 90, 249, 0.6);
+    }
+
+    .tool-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .tool-description {
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: rgba(30, 30, 60, 0.95);
+      backdrop-filter: blur(40px);
+      border-radius: 40px;
+      padding: 48px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 85%;
+      overflow-y: auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: scale(0.9) translateY(30px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .modal-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .close-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .time-display {
+      font-family: 'Poppins', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      text-align: center;
+      margin: 32px 0;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF, #36E0E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 4px;
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .control-btn {
+      padding: 16px 32px;
+      border-radius: 24px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .control-btn.start {
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      color: white;
+    }
+
+    .control-btn.pause {
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      color: white;
+    }
+
+    .control-btn.reset {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .control-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(106, 90, 249, 0.4);
+    }
+
+    .input-group {
+      margin: 24px 0;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+    }
+
+    .input-group input, .input-group select, .input-group textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .input-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+      outline: none;
+      border-color: #6A5AF9;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .input-group input::placeholder, .input-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Custom Timers Dashboard */
+    .custom-timers-section {
+      padding: 80px 0;
+    }
+
+    .add-timer-btn {
+      display: block;
+      margin: 0 auto 48px;
+      padding: 20px 48px;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      color: white;
+      border: none;
+      border-radius: 32px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(106, 90, 249, 0.4);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .add-timer-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(106, 90, 249, 0.6);
+    }
+
+    .custom-timers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .custom-timer-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
+      border-radius: 32px;
+      padding: 32px;
+      border: 2px solid;
+      position: relative;
+      animation: cardPopIn 0.4s ease-out;
+    }
+
+    .timer-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .timer-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .delete-timer-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 107, 107, 0.2);
+      border: none;
+      color: #FF6B6B;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .delete-timer-btn:hover {
+      background: rgba(255, 107, 107, 0.4);
+      transform: scale(1.1);
+    }
+
+    .timer-time {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin: 24px 0;
+      letter-spacing: 2px;
+    }
+
+    .timer-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .timer-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 16px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .timer-btn.start-btn {
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      color: white;
+    }
+
+    .timer-btn.pause-btn {
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      color: white;
+    }
+
+    .timer-btn.reset-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .timer-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* World Clock */
+    .world-clocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .world-clock-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 24px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .world-clock-city {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .world-clock-time {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      margin-top: 64px;
+    }
+
+    .step-card {
+      position: relative;
+    }
+
+    .step-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      box-shadow: 0 12px 40px rgba(106, 90, 249, 0.4);
+    }
+
+    .step-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .step-description {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 80px;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+    }
+
+    /* Alarms List */
+    .alarms-list {
+      margin-top: 32px;
+    }
+
+    .alarm-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .alarm-info {
+      flex: 1;
+    }
+
+    .alarm-time {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .alarm-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .alarm-sound {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4px;
+    }
+
+    .alarm-delete {
+      padding: 10px 20px;
+      background: rgba(255, 107, 107, 0.2);
+      color: #FF6B6B;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .alarm-delete:hover {
+      background: rgba(255, 107, 107, 0.4);
+    }
+
+    .alarm-notification {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #6A5AF9, #3E8BFF);
+      color: white;
+      padding: 32px 48px;
+      border-radius: 24px;
+      box-shadow: 0 12px 48px rgba(106, 90, 249, 0.6);
+      z-index: 2000;
+      text-align: center;
+      animation: alarmPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes alarmPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.05); }
+    }
+
+    .alarm-notification h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .alarm-notification button {
+      margin-top: 16px;
+      padding: 12px 32px;
+      background: white;
+      color: #6A5AF9;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 42px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .time-display {
+        font-size: 48px;
+      }
+
+      .modal-content {
+        padding: 32px 24px;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-logo {
+        font-size: 24px;
+        top: 20px;
+        left: 20px;
+      }
+
+      .creator-credit {
+        font-size: 10px;
+        top: 24px;
+        right: 20px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Brand Logo -->
+  <div class="brand-logo">
+   TimeKit
+  </div>
+  <div class="creator-credit">
+   Created by Er. Asgar
+  </div><!-- Background Shapes -->
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div><!-- Hero Section -->
+  <section class="hero">
+   <div class="container">
+    <div style="font-size: 72px; margin-bottom: 24px; animation: slideUp 1s ease-out both;">
+     ⏰
+    </div>
+    <h1 class="hero-title" id="heroTitle">Next-Gen Digital Time Tools</h1>
+    <p class="hero-subtitle" id="heroSubtitle">Clock, timers, stopwatch &amp; custom team timing — beautifully designed for productivity.</p>
+    <div class="hero-buttons"><button class="btn btn-primary" id="ctaPrimary" onclick="openModal('stopwatch')">Start Timer</button> <button class="btn btn-secondary" id="ctaSecondary" onclick="scrollToCustomTimers()">Create Custom Timer</button>
+    </div>
+   </div>
+  </section><!-- Tools Grid -->
+  <section class="tools-section">
+   <div class="container">
+    <h2 class="section-title" id="toolsHeading">Explore Your Time Tools</h2>
+    <div class="tools-grid">
+     <div class="tool-card" onclick="openModal('clock')">
+      <div class="tool-icon">
+       🕐
+      </div>
+      <h3 class="tool-title">Digital Clock</h3>
+      <p class="tool-description">Real-time digital clock with elegant display</p>
+     </div>
+     <div class="tool-card" onclick="openModal('countdown')">
+      <div class="tool-icon">
+       ⏳
+      </div>
+      <h3 class="tool-title">Countdown Timer</h3>
+      <p class="tool-description">Set custom countdown timers for any task</p>
+     </div>
+     <div class="tool-card" onclick="openModal('stopwatch')">
+      <div class="tool-icon">
+       ⏱️
+      </div>
+      <h3 class="tool-title">Stopwatch</h3>
+      <p class="tool-description">Precision stopwatch for time tracking</p>
+     </div>
+     <div class="tool-card" onclick="openModal('pomodoro')">
+      <div class="tool-icon">
+       🍅
+      </div>
+      <h3 class="tool-title">Pomodoro Timer</h3>
+      <p class="tool-description">Boost focus with pomodoro technique</p>
+     </div>
+     <div class="tool-card" onclick="openModal('worldclock')">
+      <div class="tool-icon">
+       🌍
+      </div>
+      <h3 class="tool-title">World Clock</h3>
+      <p class="tool-description">View time across multiple time zones</p>
+     </div>
+     <div class="tool-card" onclick="openModal('alarm')">
+      <div class="tool-icon">
+       ⏰
+      </div>
+      <h3 class="tool-title">Alarm</h3>
+      <p class="tool-description">Set alarms with custom sounds</p>
+     </div>
+     <div class="tool-card" onclick="scrollToCustomTimers()">
+      <div class="tool-icon">
+       👥
+      </div>
+      <h3 class="tool-title">Custom Team Timers</h3>
+      <p class="tool-description">Create timers for teams and projects</p>
+     </div>
+     <div class="tool-card" onclick="openModal('habits')">
+      <div class="tool-icon">
+       ✅
+      </div>
+      <h3 class="tool-title">Daily Habits Tracker</h3>
+      <p class="tool-description">Track your daily routines and habits</p>
+     </div>
+     <div class="tool-card" onclick="openModal('quicknotes')">
+      <div class="tool-icon">
+       📝
+      </div>
+      <h3 class="tool-title">Quick Notes</h3>
+      <p class="tool-description">Jot down quick thoughts and reminders</p>
+     </div>
+     <div class="tool-card" onclick="openModal('breaks')">
+      <div class="tool-icon">
+       ☕
+      </div>
+      <h3 class="tool-title">Break Reminder</h3>
+      <p class="tool-description">Remind yourself to take healthy breaks</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Custom Timers Dashboard -->
+  <section class="custom-timers-section" id="customTimersSection">
+   <div class="container">
+    <h2 class="section-title">Custom Team Timers</h2><button class="add-timer-btn" onclick="openModal('addTimer')">+ Add New Timer</button>
+    <div class="custom-timers-grid" id="customTimersGrid">
+     <div class="empty-state">
+      No custom timers yet. Click "Add New Timer" to get started!
+     </div>
+    </div>
+   </div>
+  </section><!-- How It Works -->
+  <section class="how-it-works">
+   <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-grid">
+     <div class="step-card">
+      <div class="step-icon">
+       1️⃣
+      </div>
+      <h3 class="step-title">Choose Your Tool</h3>
+      <p class="step-description">Select from 10 powerful time management tools</p>
+     </div>
+     <div class="step-card">
+      <div class="step-icon">
+       2️⃣
+      </div>
+      <h3 class="step-title">Customize Settings</h3>
+      <p class="step-description">Adjust timers, colors, and durations to fit your needs</p>
+     </div>
+     <div class="step-card">
+      <div class="step-icon">
+       3️⃣
+      </div>
+      <h3 class="step-title">Boost Productivity</h3>
+      <p class="step-description">Track time efficiently and stay focused on what matters</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer>
+   <div class="container">
+    <p class="footer-text" id="footerText">© 2024 Digital Time Tools. All rights reserved.</p>
+   </div>
+  </footer><!-- Modals -->
+  <div id="clockModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Digital Clock</h2><button class="close-btn" onclick="closeModal('clockModal')">×</button>
+    </div>
+    <div class="time-display" id="clockDisplay">
+     00:00:00
+    </div>
+    <div style="text-align: center; color: rgba(255,255,255,0.7); font-size: 18px;" id="clockDate">
+     Loading...
+    </div>
+   </div>
+  </div>
+  <div id="countdownModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Countdown Timer</h2><button class="close-btn" onclick="closeModal('countdownModal')">×</button>
+    </div>
+    <div class="input-group"><label for="countdownMinutes">Minutes</label> <input type="number" id="countdownMinutes" min="0" placeholder="Enter minutes" value="5">
+    </div>
+    <div class="input-group"><label for="countdownSeconds">Seconds</label> <input type="number" id="countdownSeconds" min="0" max="59" placeholder="Enter seconds" value="0">
+    </div>
+    <div class="time-display" id="countdownDisplay">
+     05:00
+    </div>
+    <div class="timer-controls"><button class="control-btn start" onclick="startCountdown()">Start</button> <button class="control-btn pause" onclick="pauseCountdown()">Pause</button> <button class="control-btn reset" onclick="resetCountdown()">Reset</button>
+    </div>
+   </div>
+  </div>
+  <div id="stopwatchModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Stopwatch</h2><button class="close-btn" onclick="closeModal('stopwatchModal')">×</button>
+    </div>
+    <div class="time-display" id="stopwatchDisplay">
+     00:00:00
+    </div>
+    <div class="timer-controls"><button class="control-btn start" onclick="startStopwatch()">Start</button> <button class="control-btn pause" onclick="pauseStopwatch()">Pause</button> <button class="control-btn reset" onclick="resetStopwatch()">Reset</button>
+    </div>
+   </div>
+  </div>
+  <div id="pomodoroModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Pomodoro Timer</h2><button class="close-btn" onclick="closeModal('pomodoroModal')">×</button>
+    </div>
+    <div class="input-group"><label for="pomodoroWork">Work Duration (minutes)</label> <input type="number" id="pomodoroWork" min="1" value="25">
+    </div>
+    <div class="input-group"><label for="pomodoroBreak">Break Duration (minutes)</label> <input type="number" id="pomodoroBreak" min="1" value="5">
+    </div>
+    <div class="time-display" id="pomodoroDisplay">
+     25:00
+    </div>
+    <div style="text-align: center; margin: 16px 0; font-size: 18px; color: rgba(255,255,255,0.8);" id="pomodoroPhase">
+     Work Phase
+    </div>
+    <div class="timer-controls"><button class="control-btn start" onclick="startPomodoro()">Start</button> <button class="control-btn pause" onclick="pausePomodoro()">Pause</button> <button class="control-btn reset" onclick="resetPomodoro()">Reset</button>
+    </div>
+   </div>
+  </div>
+  <div id="worldclockModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">World Clock</h2><button class="close-btn" onclick="closeModal('worldclockModal')">×</button>
+    </div>
+    <div class="world-clocks" id="worldClocks"></div>
+   </div>
+  </div>
+  <div id="alarmModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Alarm</h2><button class="close-btn" onclick="closeModal('alarmModal')">×</button>
+    </div>
+    <div class="input-group"><label for="alarmTime">Set Alarm Time</label> <input type="time" id="alarmTime">
+    </div>
+    <div class="input-group"><label for="alarmLabel">Alarm Label (Optional)</label> <input type="text" id="alarmLabel" placeholder="e.g., Morning Workout, Team Meeting">
+    </div>
+    <div class="input-group"><label for="alarmSound">Alarm Sound</label> <select id="alarmSound"> <option value="beep">🔔 Classic Beep</option> <option value="chime">🎵 Gentle Chime</option> <option value="bell">🔔 Bell Ring</option> <option value="digital">📱 Digital Alert</option> <option value="ascending">📈 Ascending</option> </select>
+    </div><button class="control-btn start" onclick="addAlarm()" style="width: 100%; margin-top: 16px;">Add Alarm</button>
+    <div class="alarms-list" id="alarmsList"></div>
+   </div>
+  </div>
+  <div id="addTimerModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Create Custom Timer</h2><button class="close-btn" onclick="closeModal('addTimerModal')">×</button>
+    </div>
+    <form id="addTimerForm" onsubmit="handleAddTimer(event)">
+     <div class="input-group"><label for="timerName">Timer Name</label> <input type="text" id="timerName" placeholder="e.g., Team Sprint, Client Meeting" required>
+     </div>
+     <div class="input-group"><label for="timerDuration">Duration (minutes)</label> <input type="number" id="timerDuration" min="1" placeholder="Enter duration" required>
+     </div>
+     <div class="input-group"><label for="timerColor">Color Theme</label> <select id="timerColor"> <option value="#6A5AF9">Purple</option> <option value="#3E8BFF">Blue</option> <option value="#36E0E0">Cyan</option> <option value="#FF6B6B">Red</option> <option value="#4ECDC4">Teal</option> <option value="#FFD93D">Yellow</option> <option value="#95E1D3">Mint</option> </select>
+     </div><button type="submit" class="control-btn start" style="width: 100%; margin-top: 24px;">Create Timer</button>
+    </form>
+   </div>
+  </div>
+  <div id="habitsModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Daily Habits Tracker</h2><button class="close-btn" onclick="closeModal('habitsModal')">×</button>
+    </div>
+    <form id="habitForm" onsubmit="handleAddHabit(event)">
+     <div class="input-group"><label for="habitName">Habit Name</label> <input type="text" id="habitName" placeholder="e.g., Morning Exercise, Read for 30 mins" required>
+     </div><button type="submit" class="control-btn start" style="width: 100%; margin-top: 16px;">Add Habit</button>
+    </form>
+    <div id="habitsList" style="margin-top: 32px;"></div>
+   </div>
+  </div>
+  <div id="quicknotesModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Quick Notes</h2><button class="close-btn" onclick="closeModal('quicknotesModal')">×</button>
+    </div>
+    <form id="noteForm" onsubmit="handleAddNote(event)">
+     <div class="input-group"><label for="noteContent">Your Note</label> <textarea id="noteContent" placeholder="Type your note here..." required></textarea>
+     </div><button type="submit" class="control-btn start" style="width: 100%; margin-top: 16px;">Save Note</button>
+    </form>
+    <div id="notesList" style="margin-top: 32px;"></div>
+   </div>
+  </div>
+  <div id="breaksModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Break Reminder</h2><button class="close-btn" onclick="closeModal('breaksModal')">×</button>
+    </div>
+    <div class="input-group"><label for="breakInterval">Remind me every (minutes)</label> <input type="number" id="breakInterval" min="5" value="30" placeholder="30">
+    </div>
+    <div class="input-group"><label for="breakMessage">Break Message</label> <input type="text" id="breakMessage" value="Time to take a break! Stand up and stretch." placeholder="Custom message">
+    </div>
+    <div class="timer-controls"><button class="control-btn start" onclick="startBreakReminder()">Start Reminders</button> <button class="control-btn pause" onclick="stopBreakReminder()">Stop Reminders</button>
+    </div>
+    <div id="breakStatus" style="margin-top: 24px; text-align: center; color: rgba(255,255,255,0.7);"></div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_title: "Next-Gen Digital Time Tools",
+      hero_subtitle: "Clock, timers, stopwatch & custom team timing — beautifully designed for productivity.",
+      cta_primary: "Start Timer",
+      cta_secondary: "Create Custom Timer",
+      tools_heading: "Explore Your Time Tools",
+      footer_text: "© 2024 Digital Time Tools. All rights reserved.",
+      background_color: "#0f0c29",
+      surface_color: "#6A5AF9",
+      text_color: "#ffffff",
+      primary_action_color: "#3E8BFF",
+      secondary_action_color: "#36E0E0",
+      font_family: "Poppins",
+      font_size: 16
+    };
+
+    let customTimers = [];
+    let habits = [];
+    let notes = [];
+    let timerIntervals = {};
+    let clockInterval, countdownInterval, stopwatchInterval, pomodoroInterval, worldClockInterval, breakReminderInterval;
+    let stopwatchTime = 0, countdownTime = 0, pomodoroTime = 0;
+    let pomodoroPhase = 'work';
+    let alarms = [];
+    let alarmCheckInterval;
+    let audioContext, currentAlarmSound;
+
+    // Audio generation for alarm sounds
+    let alarmSoundInterval = null;
+
+    function playAlarmSound(soundType) {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      if (currentAlarmSound) {
+        try {
+          currentAlarmSound.stop();
+        } catch (e) {}
+      }
+
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      switch(soundType) {
+        case 'beep':
+          oscillator.frequency.value = 800;
+          oscillator.type = 'square';
+          gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+          break;
+        case 'chime':
+          oscillator.frequency.value = 523.25;
+          oscillator.type = 'sine';
+          gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 2);
+          break;
+        case 'bell':
+          oscillator.frequency.value = 659.25;
+          oscillator.type = 'sine';
+          gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+          break;
+        case 'digital':
+          oscillator.frequency.value = 1000;
+          oscillator.type = 'triangle';
+          gainNode.gain.setValueAtTime(0.25, audioContext.currentTime);
+          break;
+        case 'ascending':
+          oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+          oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 1);
+          oscillator.type = 'sine';
+          gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+          break;
+      }
+
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + (soundType === 'ascending' ? 1 : 0.5));
+      currentAlarmSound = oscillator;
+    }
+
+    function stopAlarmSound() {
+      if (alarmSoundInterval) {
+        clearInterval(alarmSoundInterval);
+        alarmSoundInterval = null;
+      }
+      if (currentAlarmSound) {
+        try {
+          currentAlarmSound.stop();
+          currentAlarmSound = null;
+        } catch (e) {}
+      }
+    }
+
+    async function onConfigChange(config) {
+      document.getElementById('heroTitle').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('heroSubtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('ctaPrimary').textContent = config.cta_primary || defaultConfig.cta_primary;
+      document.getElementById('ctaSecondary').textContent = config.cta_secondary || defaultConfig.cta_secondary;
+      document.getElementById('toolsHeading').textContent = config.tools_heading || defaultConfig.tools_heading;
+      document.getElementById('footerText').textContent = config.footer_text || defaultConfig.footer_text;
+
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+      document.body.style.color = textColor;
+      
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const baseFontSize = config.font_size || defaultConfig.font_size;
+      
+      document.body.style.fontFamily = `${fontFamily}, Inter, sans-serif`;
+      
+      document.querySelectorAll('.hero-title').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 4}px`;
+      });
+      document.querySelectorAll('.hero-subtitle').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 1.5}px`;
+      });
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 3}px`;
+      });
+      document.querySelectorAll('.tool-title').forEach(el => {
+        el.style.fontSize = `${baseFontSize * 1.5}px`;
+      });
+      document.querySelectorAll('.tool-description').forEach(el => {
+        el.style.fontSize = `${baseFontSize}px`;
+      });
+    }
+
+    const dataHandler = {
+      onDataChanged(data) {
+        customTimers = data.filter(d => d.type === 'timer');
+        habits = data.filter(d => d.type === 'habit');
+        notes = data.filter(d => d.type === 'note');
+        renderCustomTimers();
+        renderHabits();
+        renderNotes();
+      }
+    };
+
+    async function init() {
+      if (window.dataSdk) {
+        const initResult = await window.dataSdk.init(dataHandler);
+        if (!initResult.isOk) {
+          console.error("Failed to initialize Data SDK");
+        }
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => {
+                  config.background_color = value;
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+              {
+                get: () => config.surface_color || defaultConfig.surface_color,
+                set: (value) => {
+                  config.surface_color = value;
+                  window.elementSdk.setConfig({ surface_color: value });
+                }
+              },
+              {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => {
+                  config.text_color = value;
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+              {
+                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                set: (value) => {
+                  config.primary_action_color = value;
+                  window.elementSdk.setConfig({ primary_action_color: value });
+                }
+              },
+              {
+                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                set: (value) => {
+                  config.secondary_action_color = value;
+                  window.elementSdk.setConfig({ secondary_action_color: value });
+                }
+              }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => config.font_family || defaultConfig.font_family,
+              set: (value) => {
+                config.font_family = value;
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+            fontSizeable: {
+              get: () => config.font_size || defaultConfig.font_size,
+              set: (value) => {
+                config.font_size = value;
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            }
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["hero_title", config.hero_title || defaultConfig.hero_title],
+            ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+            ["cta_primary", config.cta_primary || defaultConfig.cta_primary],
+            ["cta_secondary", config.cta_secondary || defaultConfig.cta_secondary],
+            ["tools_heading", config.tools_heading || defaultConfig.tools_heading],
+            ["footer_text", config.footer_text || defaultConfig.footer_text]
+          ])
+        });
+
+        await onConfigChange(window.elementSdk.config);
+      }
+
+      // Start alarm checker
+      startAlarmChecker();
+    }
+
+    function startAlarmChecker() {
+      if (alarmCheckInterval) clearInterval(alarmCheckInterval);
+      
+      alarmCheckInterval = setInterval(() => {
+        const now = new Date();
+        const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        
+        alarms.forEach((alarm, index) => {
+          if (alarm.time === currentTime && !alarm.triggered) {
+            alarm.triggered = true;
+            triggerAlarm(alarm);
+            
+            setTimeout(() => {
+              alarm.triggered = false;
+            }, 60000);
+          }
+        });
+      }, 1000);
+    }
+
+    function triggerAlarm(alarm) {
+      stopAlarmSound();
+      
+      let repeatCount = 0;
+      alarmSoundInterval = setInterval(() => {
+        playAlarmSound(alarm.sound);
+        repeatCount++;
+        if (repeatCount >= 3) {
+          clearInterval(alarmSoundInterval);
+          alarmSoundInterval = null;
+        }
+      }, 1000);
+      
+      const notification = document.createElement('div');
+      notification.className = 'alarm-notification';
+      notification.innerHTML = `
+        <h3>⏰ Alarm!</h3>
+        <div style="font-size: 24px; margin: 12px 0;">${alarm.time}</div>
+        ${alarm.label ? `<div style="font-size: 16px; opacity: 0.9;">${alarm.label}</div>` : ''}
+        <button onclick="dismissAlarm(this.parentElement)">Dismiss</button>
+      `;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        if (notification.parentElement) {
+          stopAlarmSound();
+          notification.remove();
+        }
+      }, 30000);
+    }
+
+    function dismissAlarm(element) {
+      stopAlarmSound();
+      element.remove();
+    }
+
+    function openModal(type) {
+      const modalIds = {
+        'clock': 'clockModal',
+        'countdown': 'countdownModal',
+        'stopwatch': 'stopwatchModal',
+        'pomodoro': 'pomodoroModal',
+        'worldclock': 'worldclockModal',
+        'alarm': 'alarmModal',
+        'addTimer': 'addTimerModal',
+        'habits': 'habitsModal',
+        'quicknotes': 'quicknotesModal',
+        'breaks': 'breaksModal'
+      };
+      
+      const modalId = modalIds[type];
+      if (modalId) {
+        document.getElementById(modalId).classList.add('active');
+        
+        if (type === 'clock') {
+          startClock();
+        } else if (type === 'worldclock') {
+          updateWorldClocks();
+          worldClockInterval = setInterval(updateWorldClocks, 1000);
+        } else if (type === 'alarm') {
+          renderAlarms();
+        }
+      }
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+      
+      if (modalId === 'clockModal' && clockInterval) {
+        clearInterval(clockInterval);
+      }
+      if (modalId === 'worldclockModal' && worldClockInterval) {
+        clearInterval(worldClockInterval);
+      }
+    }
+
+    function startClock() {
+      if (clockInterval) clearInterval(clockInterval);
+      
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        document.getElementById('clockDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+        
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('clockDate').textContent = now.toLocaleDateString('en-US', options);
+      }
+      
+      updateClock();
+      clockInterval = setInterval(updateClock, 1000);
+    }
+
+    function startCountdown() {
+      if (countdownInterval) return;
+      
+      const minutes = parseInt(document.getElementById('countdownMinutes').value) || 0;
+      const seconds = parseInt(document.getElementById('countdownSeconds').value) || 0;
+      countdownTime = (minutes * 60) + seconds;
+      
+      countdownInterval = setInterval(() => {
+        if (countdownTime <= 0) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+          playAlarmSound('digital');
+          return;
+        }
+        
+        countdownTime--;
+        const mins = Math.floor(countdownTime / 60);
+        const secs = countdownTime % 60;
+        document.getElementById('countdownDisplay').textContent = 
+          `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function pauseCountdown() {
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
+    }
+
+    function resetCountdown() {
+      pauseCountdown();
+      const minutes = parseInt(document.getElementById('countdownMinutes').value) || 0;
+      const seconds = parseInt(document.getElementById('countdownSeconds').value) || 0;
+      countdownTime = (minutes * 60) + seconds;
+      const mins = Math.floor(countdownTime / 60);
+      const secs = countdownTime % 60;
+      document.getElementById('countdownDisplay').textContent = 
+        `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function startStopwatch() {
+      if (stopwatchInterval) return;
+      
+      stopwatchInterval = setInterval(() => {
+        stopwatchTime++;
+        const hours = Math.floor(stopwatchTime / 3600);
+        const minutes = Math.floor((stopwatchTime % 3600) / 60);
+        const seconds = stopwatchTime % 60;
+        
+        document.getElementById('stopwatchDisplay').textContent = 
+          `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function pauseStopwatch() {
+      if (stopwatchInterval) {
+        clearInterval(stopwatchInterval);
+        stopwatchInterval = null;
+      }
+    }
+
+    function resetStopwatch() {
+      pauseStopwatch();
+      stopwatchTime = 0;
+      document.getElementById('stopwatchDisplay').textContent = '00:00:00';
+    }
+
+    function startPomodoro() {
+      if (pomodoroInterval) return;
+      
+      const workMinutes = parseInt(document.getElementById('pomodoroWork').value) || 25;
+      const breakMinutes = parseInt(document.getElementById('pomodoroBreak').value) || 5;
+      
+      if (pomodoroTime === 0) {
+        pomodoroTime = (pomodoroPhase === 'work' ? workMinutes : breakMinutes) * 60;
+      }
+      
+      pomodoroInterval = setInterval(() => {
+        if (pomodoroTime <= 0) {
+          playAlarmSound('chime');
+          pomodoroPhase = pomodoroPhase === 'work' ? 'break' : 'work';
+          pomodoroTime = (pomodoroPhase === 'work' ? workMinutes : breakMinutes) * 60;
+          document.getElementById('pomodoroPhase').textContent = 
+            pomodoroPhase === 'work' ? 'Work Phase' : 'Break Phase';
+        }
+        
+        pomodoroTime--;
+        const mins = Math.floor(pomodoroTime / 60);
+        const secs = pomodoroTime % 60;
+        document.getElementById('pomodoroDisplay').textContent = 
+          `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function pausePomodoro() {
+      if (pomodoroInterval) {
+        clearInterval(pomodoroInterval);
+        pomodoroInterval = null;
+      }
+    }
+
+    function resetPomodoro() {
+      pausePomodoro();
+      pomodoroPhase = 'work';
+      const workMinutes = parseInt(document.getElementById('pomodoroWork').value) || 25;
+      pomodoroTime = workMinutes * 60;
+      const mins = Math.floor(pomodoroTime / 60);
+      const secs = pomodoroTime % 60;
+      document.getElementById('pomodoroDisplay').textContent = 
+        `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      document.getElementById('pomodoroPhase').textContent = 'Work Phase';
+    }
+
+    function updateWorldClocks() {
+      const timezones = [
+        { city: 'New York', tz: 'America/New_York' },
+        { city: 'London', tz: 'Europe/London' },
+        { city: 'Tokyo', tz: 'Asia/Tokyo' },
+        { city: 'Sydney', tz: 'Australia/Sydney' },
+        { city: 'Dubai', tz: 'Asia/Dubai' },
+        { city: 'Los Angeles', tz: 'America/Los_Angeles' }
+      ];
+      
+      const container = document.getElementById('worldClocks');
+      container.innerHTML = '';
+      
+      timezones.forEach(({ city, tz }) => {
+        const time = new Date().toLocaleTimeString('en-US', { 
+          timeZone: tz, 
+          hour: '2-digit', 
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        
+        const clockItem = document.createElement('div');
+        clockItem.className = 'world-clock-item';
+        clockItem.innerHTML = `
+          <div class="world-clock-city">${city}</div>
+          <div class="world-clock-time">${time}</div>
+        `;
+        container.appendChild(clockItem);
+      });
+    }
+
+    function addAlarm() {
+      const timeInput = document.getElementById('alarmTime').value;
+      const labelInput = document.getElementById('alarmLabel').value;
+      const soundInput = document.getElementById('alarmSound').value;
+      
+      if (!timeInput) return;
+      
+      alarms.push({
+        time: timeInput,
+        label: labelInput,
+        sound: soundInput,
+        triggered: false
+      });
+      
+      renderAlarms();
+      document.getElementById('alarmTime').value = '';
+      document.getElementById('alarmLabel').value = '';
+    }
+
+    function deleteAlarm(index) {
+      alarms.splice(index, 1);
+      renderAlarms();
+    }
+
+    function renderAlarms() {
+      const container = document.getElementById('alarmsList');
+      
+      if (alarms.length === 0) {
+        container.innerHTML = '<div class="empty-state">No alarms set</div>';
+        return;
+      }
+      
+      container.innerHTML = alarms.map((alarm, index) => `
+        <div class="alarm-item">
+          <div class="alarm-info">
+            <div class="alarm-time">${alarm.time}</div>
+            ${alarm.label ? `<div class="alarm-label">${alarm.label}</div>` : ''}
+            <div class="alarm-sound">Sound: ${alarm.sound}</div>
+          </div>
+          <button class="alarm-delete" onclick="deleteAlarm(${index})">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    async function handleAddTimer(event) {
+      event.preventDefault();
+      
+      const allData = [...customTimers, ...habits, ...notes];
+      if (allData.length >= 999) {
+        showError('addTimerModal', 'Maximum limit of 999 items reached. Please delete some items first.');
+        return;
+      }
+      
+      const submitBtn = event.target.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating...';
+      
+      const name = document.getElementById('timerName').value;
+      const duration = parseInt(document.getElementById('timerDuration').value);
+      const color = document.getElementById('timerColor').value;
+      
+      const newTimer = {
+        type: 'timer',
+        id: Date.now().toString(),
+        name,
+        duration: duration * 60,
+        color,
+        isRunning: false,
+        timeRemaining: duration * 60,
+        createdAt: new Date().toISOString()
+      };
+      
+      const result = await window.dataSdk.create(newTimer);
+      
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Create Timer';
+      
+      if (result.isOk) {
+        document.getElementById('addTimerForm').reset();
+        closeModal('addTimerModal');
+      } else {
+        showError('addTimerModal', 'Failed to create timer. Please try again.');
+      }
+    }
+
+    async function handleAddHabit(event) {
+      event.preventDefault();
+      
+      const allData = [...customTimers, ...habits, ...notes];
+      if (allData.length >= 999) {
+        showError('habitsModal', 'Maximum limit reached.');
+        return;
+      }
+      
+      const name = document.getElementById('habitName').value;
+      
+      const newHabit = {
+        type: 'habit',
+        id: Date.now().toString(),
+        name,
+        completed: false,
+        createdAt: new Date().toISOString()
+      };
+      
+      const result = await window.dataSdk.create(newHabit);
+      
+      if (result.isOk) {
+        document.getElementById('habitForm').reset();
+      } else {
+        showError('habitsModal', 'Failed to add habit.');
+      }
+    }
+
+    async function handleAddNote(event) {
+      event.preventDefault();
+      
+      const allData = [...customTimers, ...habits, ...notes];
+      if (allData.length >= 999) {
+        showError('quicknotesModal', 'Maximum limit reached.');
+        return;
+      }
+      
+      const content = document.getElementById('noteContent').value;
+      
+      const newNote = {
+        type: 'note',
+        id: Date.now().toString(),
+        content,
+        createdAt: new Date().toISOString()
+      };
+      
+      const result = await window.dataSdk.create(newNote);
+      
+      if (result.isOk) {
+        document.getElementById('noteForm').reset();
+      } else {
+        showError('quicknotesModal', 'Failed to save note.');
+      }
+    }
+
+    function showError(modalId, message) {
+      const modal = document.getElementById(modalId);
+      const errorDiv = document.createElement('div');
+      errorDiv.style.cssText = 'background: rgba(255,107,107,0.2); color: #FF6B6B; padding: 16px; border-radius: 12px; margin-top: 16px; text-align: center;';
+      errorDiv.textContent = message;
+      modal.querySelector('.modal-content').appendChild(errorDiv);
+      setTimeout(() => errorDiv.remove(), 3000);
+    }
+
+    function renderCustomTimers() {
+      const container = document.getElementById('customTimersGrid');
+      
+      if (customTimers.length === 0) {
+        container.innerHTML = '<div class="empty-state">No custom timers yet. Click "Add New Timer" to get started!</div>';
+        return;
+      }
+      
+      container.innerHTML = customTimers.map(timer => {
+        const minutes = Math.floor(timer.timeRemaining / 60);
+        const seconds = timer.timeRemaining % 60;
+        const timeDisplay = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        
+        return `
+          <div class="custom-timer-card" style="border-color: ${timer.color};">
+            <div class="timer-card-header">
+              <div class="timer-name" style="color: ${timer.color};">${timer.name}</div>
+              <button class="delete-timer-btn" onclick="deleteTimer('${timer.__backendId}')">×</button>
+            </div>
+            <div class="timer-time" style="color: ${timer.color};">${timeDisplay}</div>
+            <div class="timer-buttons">
+              <button class="timer-btn ${timer.isRunning ? 'pause-btn' : 'start-btn'}" 
+                      onclick="${timer.isRunning ? 'pauseTimer' : 'startTimer'}('${timer.__backendId}')">
+                ${timer.isRunning ? 'Pause' : 'Start'}
+              </button>
+              <button class="timer-btn reset-btn" onclick="resetTimer('${timer.__backendId}')">Reset</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderHabits() {
+      const container = document.getElementById('habitsList');
+      if (!container) return;
+      
+      if (habits.length === 0) {
+        container.innerHTML = '<div class="empty-state">No habits tracked yet.</div>';
+        return;
+      }
+      
+      container.innerHTML = habits.map(habit => `
+        <div class="alarm-item">
+          <div class="alarm-info">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <input type="checkbox" ${habit.completed ? 'checked' : ''} 
+                     onchange="toggleHabit('${habit.__backendId}')"
+                     style="width: 24px; height: 24px; cursor: pointer;">
+              <div style="font-size: 18px; font-weight: 600; ${habit.completed ? 'text-decoration: line-through; opacity: 0.6;' : ''}">${habit.name}</div>
+            </div>
+          </div>
+          <button class="alarm-delete" onclick="deleteHabit('${habit.__backendId}')">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    function renderNotes() {
+      const container = document.getElementById('notesList');
+      if (!container) return;
+      
+      if (notes.length === 0) {
+        container.innerHTML = '<div class="empty-state">No notes yet.</div>';
+        return;
+      }
+      
+      container.innerHTML = notes.map(note => `
+        <div class="alarm-item" style="flex-direction: column; align-items: stretch;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+            <div style="flex: 1; color: rgba(255,255,255,0.9); line-height: 1.6;">${note.content}</div>
+            <button class="alarm-delete" onclick="deleteNote('${note.__backendId}')">Delete</button>
+          </div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 8px;">${new Date(note.createdAt).toLocaleString()}</div>
+        </div>
+      `).join('');
+    }
+
+    async function toggleHabit(backendId) {
+      const habit = habits.find(h => h.__backendId === backendId);
+      if (!habit) return;
+      
+      habit.completed = !habit.completed;
+      await window.dataSdk.update(habit);
+    }
+
+    async function deleteHabit(backendId) {
+      const habit = habits.find(h => h.__backendId === backendId);
+      if (!habit) return;
+      
+      await window.dataSdk.delete(habit);
+    }
+
+    async function deleteNote(backendId) {
+      const note = notes.find(n => n.__backendId === backendId);
+      if (!note) return;
+      
+      await window.dataSdk.delete(note);
+    }
+
+    async function startTimer(backendId) {
+      const timer = customTimers.find(t => t.__backendId === backendId);
+      if (!timer || timer.isRunning) return;
+      
+      timer.isRunning = true;
+      await window.dataSdk.update(timer);
+      
+      timerIntervals[backendId] = setInterval(async () => {
+        const currentTimer = customTimers.find(t => t.__backendId === backendId);
+        if (!currentTimer || !currentTimer.isRunning) {
+          clearInterval(timerIntervals[backendId]);
+          return;
+        }
+        
+        if (currentTimer.timeRemaining <= 0) {
+          currentTimer.isRunning = false;
+          clearInterval(timerIntervals[backendId]);
+          playAlarmSound('bell');
+          await window.dataSdk.update(currentTimer);
+          return;
+        }
+        
+        currentTimer.timeRemaining--;
+        await window.dataSdk.update(currentTimer);
+      }, 1000);
+    }
+
+    async function pauseTimer(backendId) {
+      const timer = customTimers.find(t => t.__backendId === backendId);
+      if (!timer) return;
+      
+      timer.isRunning = false;
+      if (timerIntervals[backendId]) {
+        clearInterval(timerIntervals[backendId]);
+      }
+      await window.dataSdk.update(timer);
+    }
+
+    async function resetTimer(backendId) {
+      const timer = customTimers.find(t => t.__backendId === backendId);
+      if (!timer) return;
+      
+      timer.isRunning = false;
+      timer.timeRemaining = timer.duration;
+      if (timerIntervals[backendId]) {
+        clearInterval(timerIntervals[backendId]);
+      }
+      await window.dataSdk.update(timer);
+    }
+
+    async function deleteTimer(backendId) {
+      const timer = customTimers.find(t => t.__backendId === backendId);
+      if (!timer) return;
+      
+      if (timerIntervals[backendId]) {
+        clearInterval(timerIntervals[backendId]);
+      }
+      
+      const result = await window.dataSdk.delete(timer);
+      if (!result.isOk) {
+        showError('customTimersSection', 'Failed to delete timer.');
+      }
+    }
+
+    function startBreakReminder() {
+      if (breakReminderInterval) {
+        clearInterval(breakReminderInterval);
+      }
+      
+      const interval = parseInt(document.getElementById('breakInterval').value) || 30;
+      const message = document.getElementById('breakMessage').value;
+      
+      document.getElementById('breakStatus').innerHTML = `
+        <div style="color: #4ECDC4; font-weight: 600;">✅ Break reminders active!</div>
+        <div style="font-size: 14px; margin-top: 8px;">Next break in ${interval} minutes</div>
+      `;
+      
+      breakReminderInterval = setInterval(() => {
+        playAlarmSound('chime');
+        
+        const notification = document.createElement('div');
+        notification.className = 'alarm-notification';
+        notification.innerHTML = `
+          <h3>☕ Break Time!</h3>
+          <div style="font-size: 16px; margin: 12px 0; opacity: 0.9;">${message}</div>
+          <button onclick="this.parentElement.remove()">Got it!</button>
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          if (notification.parentElement) {
+            notification.remove();
+          }
+        }, 20000);
+      }, interval * 60 * 1000);
+    }
+
+    function stopBreakReminder() {
+      if (breakReminderInterval) {
+        clearInterval(breakReminderInterval);
+        breakReminderInterval = null;
+        document.getElementById('breakStatus').innerHTML = `
+          <div style="color: rgba(255,255,255,0.5);">Break reminders stopped</div>
+        `;
+      }
+    }
+
+    function scrollToCustomTimers() {
+      document.getElementById('customTimersSection').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a190c50b4b0914f',t:'MTc2MzY1MzI1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
